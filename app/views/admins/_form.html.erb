@@ -1,17 +1,50 @@
-<%= form_with(model: admin, local: true) do |form| %>
-  <% if admin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+<div class="container">
+  <%= form_for @admin do |f| %>
+    <% if @admin.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this @admin from being saved:</h2>
 
-      <ul>
-      <% admin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+        <% @admin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <%= f.label :admin %>
+      <%= f.fields_for :user do |user| %>
+        <div class="form-group">
+          <%= user.label :first_name %>
+          <%= user.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= user.label :last_name %>
+          <%= user.text_field :last_name %>
+        </div>
+        <div class="form-group">
+          <%= user.label :country %>
+          <%= user.text_field :country %>
+        </div>
+        <div class="form-group">
+          <%= user.label :city %>
+          <%= user.text_field :city %>
+        </div>
+        <div class="form-group">
+          <%= user.label :street_address %>
+          <%= user.text_field :street_address %>
+        </div>
+        <div class="form-group">
+          <%= user.label :email %>
+          <%= user.text_field :email %>
+        </div>
+        <div class="form-group">
+          <%= user.label :phone_number %>
+          <%= user.text_field :phone_number %>
+        </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
