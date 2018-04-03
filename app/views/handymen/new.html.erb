@@ -3,9 +3,8 @@
     <legend class="text-center">New Handyman</legend>
 
     <%= render 'form', handyman: @handyman %>
-    <#button class="btn btn-secondary btn-lg">
-      <%= button_to handymen_path%>
-    <#/button>
+
+      <%= link_to 'Back', handymen_path, class:"btn btn-secondary btn-lg" %>
 
     </div>
   </div>
