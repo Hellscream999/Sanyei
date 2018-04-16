@@ -4,7 +4,7 @@ class HandymenController < ApplicationController
   # GET /handymen
   # GET /handymen.json
   def index
-    @handymen = Handyman.all
+    @handymen = Handyman.search(params[:profession])
   end
 
   # GET /handymen/1
