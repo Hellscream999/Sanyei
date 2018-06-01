@@ -1,5 +1,6 @@
 class HandymenController < ApplicationController
   before_action :set_handyman, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /handymen
   # GET /handymen.json
@@ -24,7 +25,6 @@ class HandymenController < ApplicationController
   # POST /handymen
   # POST /handymen.json
   def create
-    Rails.logger.debug("#{handyman_params}+rabeaaaa")
     @handyman = Handyman.new(handyman_params)
 
     respond_to do |format|
@@ -70,6 +70,6 @@ class HandymenController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def handyman_params
-      params.require(:handyman).permit(:profession, user_attributes: [:first_name, :last_name, :country, :city, :street_address, :email, :phone_number, :id])
+      params.require(:handyman).permit(:profession, user_attributes: [:first_name, :last_name, :country, :city, :street_address, :email, :phone_number, :id, :password, :password_confirmation])
     end
 end
