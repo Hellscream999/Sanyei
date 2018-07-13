@@ -9,8 +9,10 @@
         <li><a class="navbar-brand" href="#">Arabic</a></li>
         <li><a class="navbar-brand" href="#">Contact Us</a></li>
         <li><a class="navbar-brand" href="<%= new_handyman_path %>">Join Us as Handyman</a></li>
-        <li><a class="navbar-brand" href="<%= new_user_session_path %>">Log in</a></li>
-        <li><a class="navbar-brand" href="<%= destroy_user_session_path %>">Sign out</a></li>
+        <li><a class="navbar-brand" href="<%= new_user_session_path %>">Sign in</a></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: :"navbar-brand" %></li>
+
+
       </ul>
 
     </div>

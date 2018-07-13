@@ -50,7 +50,10 @@ class UsersController < ApplicationController
       end
     end
   end
-
+  def sign_out
+    Rails.logger.debug("hello mr rabea this is the controler")
+    users_url
+  end
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
