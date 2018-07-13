@@ -1,6 +1,7 @@
 
 <div id="search_bar">
   <%= form_tag(handymen_path, method: :get) do%>
+  <#%= debug(session) if Rails.env.development?  %>
     <div class="outer">
     	<div class="bg">
     		<div class="searchBar">

@@ -31,9 +31,28 @@
           <div class="form-group">
             <%= user.label :email, class:'col-md-4 control-label' %>
             <div class="col-md-5">
-              <%= user.text_field :email, class:'form-control input-md', placeholder:'Email' %>
+              <%= user.email_field :email, class:'form-control input-md', placeholder:'Email', autofocus: true, autocomplete: "email" %>
             </div>
           </div>
+
+          <div class="form-group">
+            <%= user.label :password, class:"col-md-4 control-label"%>
+            <div class="col-md-5">
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= user.password_field :password, autocomplete: "off", class:"form-control input-md" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= user.label :password_confirmation, class:"col-md-4 control-label" %>
+            <div class="col-md-5">
+              <%= user.password_field :password_confirmation, autocomplete: "off", class:"form-control input-md" %>
+            </div>
+          </div>
+
+
 
           <div class="form-group">
             <%= user.label :phone_number, class:'col-md-4 control-label' %>
@@ -63,7 +82,12 @@
             </div>
           </div>
 
-
+          <div class="form-group">
+            <%= f.label :profession, class:'col-md-4 control-label' %>
+            <div class="col-md-5">
+              <%= f.text_field :profession, class:'form-control input-md', placeholder:'Profession' %>
+            </div>
+          </div>
 
       </fieldset>
 
