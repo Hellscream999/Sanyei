@@ -1,22 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Handymen</h1>
-
-<table>
+<#%= simple_format @handymen.to_yaml %>
+<table id="handymen-datatable" data-source="<%= handymen_path(format: :json) %>">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>id</th>
+      <th>profession</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @handymen.each do |handyman| %>
-      <tr>
-        <td><%= link_to 'Show', handyman %></td>
-        <td><%= link_to 'Edit', edit_handyman_path(handyman) %></td>
-        <td><%= link_to 'Destroy', handyman, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
   </tbody>
 </table>
 

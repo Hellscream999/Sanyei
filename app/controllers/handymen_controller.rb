@@ -1,11 +1,16 @@
 class HandymenController < ApplicationController
   before_action :set_handyman, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
+  #before_action :authenticate_user!, only: [:show, :edit, :update, :destroy]
 
   # GET /handymen
   # GET /handymen.json
   def index
-    @handymen = Handyman.search(params[:profession])
+    #@handymen = Handyman.search(params[:profession])
+  #  Rails.logger.debug("this is the fucking #{a=view_context}")
+    respond_to do |format|
+      format.html
+      format.json {render json: HandymanDatatable.new(params, view_context: view_context)}
+    end
   end
 
   # GET /handymen/1
