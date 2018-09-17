@@ -12,5 +12,39 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require datatables
 //= require bootstrap-sprockets
 //= require_tree .
+
+jQuery(document).ready(function() {
+  $('#handymen-datatable').dataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": $('#handymen-datatable').data('source'),
+    "pagingType": "full_numbers",
+    "columns": [
+      {"data": "id"},
+      {"data": "profession"},
+    ]
+    // pagingType is optional, if you want full pagination controls.
+    // Check dataTables documentation to learn more about
+    // available options.
+  });
+  $('#users-datatable').dataTable({
+     "processing": true,
+     "serverSide": true,
+     "ajax": $('#users-datatable').data('source'),
+     "pagingType": "full_numbers",
+     "columns": [
+       {"data": "id"},
+       {"data": "first_name"},
+       {"data": "last_name"},
+       {"data": "email"}
+     ]
+     // pagingType is optional, if you want full pagination controls.
+     // Check dataTables documentation to learn more about
+     // available options.
+   });
+}
+);
